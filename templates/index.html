@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Zipper</title>
+    <!-- Link to the stylesheet with a dynamic ID to toggle themes -->
+    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='dark_theme.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>File Zipper</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="file-upload">Upload Files</label>
+            <input type="file" id="file-upload" name="files" multiple required class="styled-button">
+            
+            <label for="zip-format">Choose Zip Format</label>
+            <select id="zip-format" name="format"></select>
+            
+            <button type="submit" id="zip-btn" class="styled-button">Zip Files</button>
+        </form>
+        
+        <div id="file-list">
+            <h2>Uploaded Files:</h2>
+            <ul id="files-ul"></ul>
+        </div>
+        
+        <div id="download-link" style="display:none;">
+            <a href="#" id="download-btn" download>Download Zipped File</a>
+        </div>
+    </div>
+
+    <!-- Theme switcher button -->
+    <button id="theme-switcher" style="position: fixed; bottom: 10px; left: 10px; padding: 10px; cursor: pointer;">
+        Switch Theme
+    </button>
+
+    <script>
+        // Get the theme link element and switcher button
+        const themeLink = document.getElementById('theme-link');
+        const themeSwitcher = document.getElementById('theme-switcher');
+
+        // Load the preferred theme from localStorage, default to dark theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        themeLink.href = savedTheme === 'dark' 
+            ? "{{ url_for('static', filename='dark_theme.css') }}" 
+            : "{{ url_for('static', filename='light_theme.css') }}";
+
+        // Set up theme switching
+        themeSwitcher.addEventListener('click', () => {
+            // Toggle theme
+            const newTheme = themeLink.href.includes('dark_theme.css') ? 'light' : 'dark';
+            themeLink.href = newTheme === 'dark' 
+                ? "{{ url_for('static', filename='dark_theme.css') }}" 
+                : "{{ url_for('static', filename='light_theme.css') }}";
+            
+            // Save the user's theme choice in localStorage
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

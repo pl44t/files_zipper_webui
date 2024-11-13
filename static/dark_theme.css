@@ -1,0 +1,106 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1E1E2F;  /* Dark background */
+    color: #F0F0F5;  /* Light text */
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #2D2D3B;  /* Darker container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #4DB6AC;  /* Teal accent */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #F0F0F5; /* Light text */
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333846;
+    color: #F0F0F5; /* Light text */
+}
+
+/* Common button styling */
+.styled-button, button, label[for="file-upload"] {
+    background-color: #4DB6AC;  /* Teal accent */
+    color: #1E1E2F;  /* Dark background for contrast */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+button, label[for="file-upload"]:hover, .styled-button:hover {
+    background-color: #58B0A2;  /* Slightly lighter teal on hover */
+}
+
+/* Zip Files button styling */
+#zip-btn {
+    background-color: #FF5252; /* Red accent */
+    color: #F0F0F5; /* Light text */
+}
+
+#zip-btn:hover {
+    background-color: #CC4444; /* Darker red on hover */
+}
+
+#download-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#download-btn {
+    background-color: #FF5252;  /* Red accent */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#download-btn:hover {
+    background-color: #CC4444;  /* Darker red on hover */
+}
+
+#zip-format, label[for="zip-format"] {
+    display: none;
+}
+
+/* File input styling */
+#file-upload {
+    display: none; /* Hide the default file input */
+}
+
+label[for="file-upload"]:hover {
+    background-color: #496D72; /* Less dark teal on hover */
+}
